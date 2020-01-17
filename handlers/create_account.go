@@ -14,7 +14,7 @@ var (
 
 //CreateAccount is used to create account details
 func CreateAccount(w http.ResponseWriter, req *http.Request) {
-	// this variable holds the decoded jason data
+	// this variable holds the decoded json data
 	var account models.Account
 
 	body, err := ioutil.ReadAll(req.Body)

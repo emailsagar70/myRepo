@@ -1,9 +1,11 @@
 package handlers
 
 import (
-	"github.com/tes-svc/models"
+	"encoding/json"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/tes-svc/models"
 )
 
 var (
@@ -24,10 +26,17 @@ func CreateAccount(w http.ResponseWriter, req *http.Request) {
 		w.Write([]byte(err.Error()))
 	}
 
-// It will decode all the data from json to code langugage
-err = json.Unmarshal (body, &account)
-if err != nil {
-	w.WriteHeader(http.StatusBadRequest) // this will returnt the status code 400 when there is an error
-	// User will receive the data in byte form this will convert the normal error in a string by decoding
-	w.Write([]byte(err.Error()))
+	// It will decode all the data from json to code langugage
+	if err = json.Unmarshal(body, &account); err != nil {
+		w.WriteHeader(http.StatusBadRequest) // this will returnt the status code 400 when there is an error
+		// User will receive the data in byte form this will convert the normal error in a string by decoding
+		w.Write([]byte(err.Error()))
+	}
+
+	// appending account to slice - accounts
+	accounts = append(accounts, account)
+	// after adding we have to return the status as created
+	w.WriteHeader(http.StatusCreated)
+	return
+
 }

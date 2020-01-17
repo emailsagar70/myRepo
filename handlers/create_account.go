@@ -23,7 +23,6 @@ func CreateAccount(w http.ResponseWriter, req *http.Request) {
 		// User will receive the data in byte form this will convert the normal error in a string by decoding
 		w.Write([]byte(err.Error()))
 	}
-}
 
 // It will decode all the data from json to code langugage
 err = json.Unmarshal (body, &account)

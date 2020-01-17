@@ -4,11 +4,7 @@ package main
 
 // import "net/http"
 
-// import "fmt"
-
 func main() {
 	//r:=mux.NewRouter()
 
 }
-
-// func sample(w http.ResponseWriter, r *http.Request)

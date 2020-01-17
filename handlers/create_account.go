@@ -9,6 +9,7 @@ import (
 )
 
 var (
+	// this creates a slice of account where it stores all the account details
 	accounts []models.Account
 )
 

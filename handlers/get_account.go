@@ -1,11 +1,13 @@
 package handlers
 
-import "net/http"
+import (
+	"net/http"
 
-import "encoding/json"
+	"encoding/json"
+)
 
-// ListAccount is used to get the list of an account
-func ListAccount(w http.ResponseWriter, r *http.Request) {
+// ListAccounts is used to get the list of an account
+func ListAccounts(w http.ResponseWriter, r *http.Request) {
 	// This will take the address of 'accounts' where all the 'Post'ed values are stored
 	JSONResp, err := json.Marshal(&accounts)
 	if err != nil {

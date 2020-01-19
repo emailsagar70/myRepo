@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"net/http"
 
+	"github.com/google/uuid"
 	"github.com/tes-svc/models"
 )
 
@@ -37,6 +38,10 @@ func CreateAccount(w http.ResponseWriter, req *http.Request) {
 	// appending account to slice - accounts
 	accounts = append(accounts, account)
 	// after adding we have to return the status as created
+
+	// generate new UUID for the account
+	account.ID = uuid.New().String()
+
 	w.WriteHeader(http.StatusCreated)
 	return
 

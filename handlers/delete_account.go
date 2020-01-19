@@ -27,6 +27,6 @@ func DeleteAccount(w http.ResponseWriter, r *http.Request) {
 
 	accounts = temp
 	w.WriteHeader(http.StatusNoContent)
-	w.Write([]byte(fmt.Sprintf("Account %v is deleted successfully", urlParams["id"])))
+	// w.Write([]byte(fmt.Sprintf("Account %v is deleted successfully", urlParams["id"])))
 
 }

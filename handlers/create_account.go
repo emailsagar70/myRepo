@@ -35,13 +35,12 @@ func CreateAccount(w http.ResponseWriter, req *http.Request) {
 		w.Write([]byte(err.Error()))
 	}
 
-	// appending account to slice - accounts
-	accounts = append(accounts, account)
-	// after adding we have to return the status as created
-
 	// generate new UUID for the account
 	account.ID = uuid.New().String()
 
+	// appending account to slice - accounts
+	accounts = append(accounts, account)
+	// after adding we have to return the status as created
 	w.WriteHeader(http.StatusCreated)
 	return
 

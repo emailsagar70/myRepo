@@ -10,7 +10,7 @@ import (
 
 // DeleteAccount will delete the details of an account
 func DeleteAccount(w http.ResponseWriter, r *http.Request) {
-
+	// this will read all the parameters in URL
 	urlParams := mux.Vars(r)
 
 	var temp []models.Account

@@ -11,6 +11,7 @@ func main() {
 	r.HandleFunc("/v1/account", handlers.CreateAccount).Methods(http.MethodPost)
 	r.HandleFunc("/v1/account", handlers.ListAccounts).Methods(http.MethodGet)
 	r.HandleFunc("/v1/account/{id}", handlers.DeleteAccount).Methods(http.MethodDelete)
+	r.HandleFunc("/v1/account/{id}", handlers.UpdateAccount).Methods(http.MethodPatch)
 
 	http.ListenAndServe(":8080", r)
 

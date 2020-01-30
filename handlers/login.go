@@ -24,7 +24,6 @@ func LoginHandler(w http.ResponseWriter, r *http.Request) {
 		w.WriteHeader(http.StatusBadRequest)
 		w.Write([]byte(err.Error()))
 		return
-
 	}
 
 	if acc.Email == "" || acc.Password == "" {

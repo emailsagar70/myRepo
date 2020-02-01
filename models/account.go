@@ -11,5 +11,7 @@ type Account struct {
 	Password    string `json:"password,omitempty"`
 	Gender      string `json:"gender,omitempty"`
 	// here pointer is used to avoid display empty struct in UI if bad data is received
-	Address *Address `json:"address,omitempty"`
+	Address     *Address `json:"address,omitempty"`
+	Status      string   `json:"status,omitempty"`
+	OldPassword string   `json:"oldpassword,omitempty"`
 }

@@ -3,7 +3,7 @@ package db
 import (
 	"database/sql"
 	"fmt"
-	
+	// This package is used to for postgres
 	_ "github.com/lib/pq"
 
 	"github.com/tes-svc/config"

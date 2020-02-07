@@ -1,12 +1,18 @@
 package main
 
-import "github.com/gorilla/mux"
+import (
+	"net/http"
 
-import "net/http"
-
-import "github.com/tes-svc/handlers"
+	"github.com/gorilla/mux"
+	"github.com/tes-svc/config"
+	"github.com/tes-svc/db"
+	"github.com/tes-svc/handlers"
+)
 
 func main() {
+	// Establish a database connection
+	db.NewClient()
+
 	r := mux.NewRouter()
 	r.HandleFunc("/v1/account", handlers.CreateAccount).Methods(http.MethodPost)
 	r.HandleFunc("/v1/account/login", handlers.LoginHandler).Methods(http.MethodPost)
@@ -14,6 +20,6 @@ func main() {
 	r.HandleFunc("/v1/account/{id}", handlers.UpdateAccount).Methods(http.MethodPatch)
 	r.HandleFunc("/v1/account/{id}", handlers.DeleteAccount).Methods(http.MethodDelete)
 
-	http.ListenAndServe(":8080", r)
+	http.ListenAndServe(":"+config.Port, r)
 
 }

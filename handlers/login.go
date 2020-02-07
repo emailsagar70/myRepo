@@ -12,7 +12,9 @@ import (
 //LoginHandler is used to login to the account
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
 
+	// this acc is created to hold the decoded json data
 	var acc models.Account
+
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)

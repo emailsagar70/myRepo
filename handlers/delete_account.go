@@ -13,6 +13,7 @@ func DeleteAccount(w http.ResponseWriter, r *http.Request) {
 	// this will read all the parameters in URL
 	urlParams := mux.Vars(r)
 
+	// this temp is created to hold the accounts
 	var temp []models.Account
 
 	// get all the account from the list

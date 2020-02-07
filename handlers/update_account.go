@@ -15,7 +15,7 @@ func UpdateAccount(w http.ResponseWriter, r *http.Request) {
 	// this variable holds the decoded json data
 	var account models.Account
 
-	// this will read the parameters requested in URL
+	// this will read the parameters requested in the URL
 	urlParams := mux.Vars(r)
 
 	// This will check if there's an update or not

@@ -19,6 +19,7 @@ func CreateAccount(w http.ResponseWriter, req *http.Request) {
 	// this variable holds the decoded json data
 	var account models.Account
 
+	//ioutil will help to read the body
 	body, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		// this will return the status code 400 when there is an error
